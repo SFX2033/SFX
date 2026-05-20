@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main # Votre branche GitHub
+
+media_folder: "public/images" # Où le client va uploader ses images
+public_folder: "/images"
+
+# On définit ce que le client a le droit de modifier
+collections:
+  - name: "configuration"
+    label: "Contenu du Site"
+    delete: false # On empêche le client de supprimer le fichier
+    files:
+      - name: "homepage"
+        label: "Page d'accueil & Tarifs"
+        file: "data.json" # Le fichier cible que Decap va modifier
+        fields:
+          - { label: "Titre du site", name: "site_title", widget: "string" }
+          - { label: "Texte de présentation", name: "presentation_text", widget: "text" }
+          - { label: "Prix de la consultation", name: "price_consultation", widget: "string" }
