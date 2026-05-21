@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main # Votre branche GitHub
 
-media_folder: "public/images" # Où le client va uploader ses images
+media_folder: "images" # Où le client va uploader ses images
 public_folder: "/images"
 
 # On définit ce que le client a le droit de modifier
