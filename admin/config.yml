@@ -3,7 +3,7 @@ backend:
   branch: main # Votre branche GitHub
 
 media_folder: "public/images" # Où le client va uploader ses images
-public_folder: "/images"
+public_folder: "/public/images"
 
 # On définit ce que le client a le droit de modifier
 collections:
@@ -18,3 +18,5 @@ collections:
           - { label: "Titre du site", name: "site_title", widget: "string" }
           - { label: "Texte de présentation", name: "presentation_text", widget: "text" }
           - { label: "Prix de la consultation", name: "price_consultation", widget: "string" }
+# 3. AJOUT DU CHAMP IMAGE ICI
+          - { label: "Photo de profil", name: "profile_picture", widget: "image" }
