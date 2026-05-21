@@ -1,19 +1,19 @@
 fetch('/data.json')
   .then(response => response.json())
   .then(data => {
-    // Remplacement des textes
     document.getElementById('titre-site').innerText = data.site_title;
     document.getElementById('texte-presentation').innerText = data.presentation_text;
     document.getElementById('tarif-affichage').innerText = data.price_consultation;
     
-    // Remplacement de la photo de profil
+    // Si une image est présente dans le JSON, on l'applique partout
     if (data.profile_picture) {
+      // 1. On change la photo de profil de la section About
       document.getElementById('photo-client').src = data.profile_picture;
       
-      // BONUS : Met aussi à jour dynamiquement l'image de fond du Hero en ligne !
-      document.getElementById('hero-bg').style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${data.profile_picture}')`;
-      document.getElementById('hero-bg').style.backgroundSize = 'cover';
-      document.getElementById('hero-bg').style.backgroundPosition = 'center';
+      // 2. On change l'image de fond du Hero dynamiquement
+      const hero = document.getElementById('hero-bg');
+      hero.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${data.profile_picture}')`;
+      hero.style.backgroundSize = 'cover';
+      hero.style.backgroundPosition = 'center';
     }
-  })
-  .catch(error => console.error("Erreur de chargement du JSON :", error));
+  });
