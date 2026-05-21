@@ -19,8 +19,8 @@
             display: flex;
             align-items: center;
         }        
-        .container {
-            justify-content: center;
+        /* CORRECTION ICI : On applique le texte blanc uniquement au hero container pour ne pas casser le reste du site */
+        .hero-section .container {
             color: white;
             text-align: center;
         }
@@ -55,7 +55,7 @@
 </head>
 <body>
 
-    <header class="hero-section">
+    <header class="hero-section" id="hero-bg">
         <div class="container">
             <h1 class="display-1 fw-bold" id="titre-site">Pauline</h1>
             <p class="lead fs-3">Bienvenue dans mon univers</p>
@@ -69,15 +69,13 @@
                 <div class="col-lg-5 text-center mb-4 mb-lg-0">
                     <img id="photo-client" src="/images/popo.jpg" alt="Pauline" class="rounded-circle profile-img">
                 </div>
-                <div class="col-lg-7">
-                    <h2 class="display-4 fw-bold mb-4">Hello, c'est <span class="accent-color">Papa</span></h2>
+                <div class="col-lg-7 text-start"> <h2 class="display-4 fw-bold mb-4">Hello, c'est <span class="accent-color">Pauline</span></h2>
                     <p class="text-muted fs-5" id="texte-presentation">
                         Passionnée par le développement, le design et les nouvelles technologies. 
-                        Ce site est un petit espace dédié à mes projets et mes inspirations.
                     </p>
-                    <p id="tarif-affichage">1200 €</p>
-                    <hr class="my-4" style="width: 50px; border: 2px solid #ff6b6b;">
-                    <div class="d-flex gap-3">
+                    <p class="fs-4 fw-bold text-secondary" id="tarif-affichage">1200 €</p>
+                    <hr class="my-4" style="width: 50px; border: 2px solid #ff6b6b; margin: 0;">
+                    <div class="d-flex gap-3 mt-4">
                         <div class="p-2 border rounded text-center" style="width: 100px;">
                             <span class="fw-bold d-block">Creative</span>
                         </div>
@@ -101,12 +99,10 @@
     <script src="/js/script.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-    // Si le site détecte que l'utilisateur arrive depuis un mail d'invitation (un "hash" dans l'URL)
     if (window.location.hash) {
         window.netlifyIdentity.on("init", user => {
         if (!user) {
             window.netlifyIdentity.on("login", () => {
-            // Une fois connecté ou enregistré, on le redirige proprement vers l'admin
             document.location.href = "/admin/";
             });
         }
